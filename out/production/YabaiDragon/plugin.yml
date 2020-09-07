@@ -1,0 +1,7 @@
+name: YabaiDragon
+main: me.kei.dragon.Dragon
+version: 1.0
+api-version: 1.15
+author: Kei
+commands:
+  dragon:
