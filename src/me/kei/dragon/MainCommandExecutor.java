@@ -61,6 +61,16 @@ public class MainCommandExecutor implements CommandExecutor {
 
                 Dragon.locations = LocationUtils.getLocationsOnLine(from, to, from.distance(to)/tick);
                 Dragon.completeTick = tick;
+
+                to = Dragon.locations.get(1);
+                if(from.getZ() > to.getZ()) from.setYaw(0);
+                else if(from.getX() < to.getX() && from.getZ() > to.getZ()) from.setYaw(45);
+                else if(from.getX() < to.getX()) from.setYaw(90);
+                else if(from.getX() < to.getX() && from.getZ() < to.getZ()) from.setYaw(135);
+                else if(from.getZ() < to.getZ()) from.setYaw(180);
+                else if(from.getZ() < to.getZ() && from.getX() > to.getX()) from.setYaw(225);
+                else if(from.getX() > to.getX()) from.setYaw(270);
+
                 Dragon.entityDragon = from.getWorld().spawn(from, EnderDragon.class);
 
                 Dragon.entityDragon.setAI(true);
